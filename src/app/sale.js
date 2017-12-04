@@ -1,12 +1,8 @@
 import './sale.less';
 import React from 'react';
 import ReactDom from 'react-dom';
-// let a = "1";
-// console.log(a)
+import {SaleDetail} from '../components/sale/detail';
 const node = document.getElementById('root');
-// node.innerHTML = 'hello world';
+ReactDom.render(<SaleDetail />, node);
 
-ReactDom.render("hello world 51",node);
 
-// [webpack template] ES5/ES6 ===> ES5 
-// 仍需的功能：

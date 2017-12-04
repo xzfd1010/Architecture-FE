@@ -18,18 +18,23 @@ module.exports = {
         new ExtractTextPlugin("css/[name].css"),
         // 生成Html
         new HtmlWebpackPlugin({
-            title: 'sale', // 文件的title
+            // title: 'sale', // 文件的title
             template: 'base/webpack.template.html', // 编译的模板
-            filename: 'sale.html', // 文件名
-            chunks: ['sale','list']  // 需要的css/js
+            inject:'true'
+            // filename: 'sale.html', // 文件名
+            // chunks: ['sale','list']  // 需要的css/js
         }),
     ],
+    resolve: {
+        extensions: [".tsx", ".ts", ".js", ".jsx", ".json"],  
+    },
     module: {
         rules: [
             // 处理js文件
             {
-                test: /\.js$/,
-                loader: 'babel-loader'
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                exclude:'/node_modules/'
             },
             // 初始sass文件
             {
