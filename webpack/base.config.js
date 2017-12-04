@@ -4,22 +4,24 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    context: path.resolve(process.cwd(), "src/app"),
-    entry: entry,
-    watch: true,
+    context: path.resolve(process.cwd(), "src"),
+    entry: entry,   
     output: {
         // 打包的绝对路径，process.cwd()是npm启动目录
         path: path.resolve(process.cwd(), "dist"),
+        // webpack dev server的路由路径，所有的路径都会放在/dist目录下面
+        publicPath:'/dist',
         // 导出目录的文件名
         filename: "[name].js"
     },
     plugins: [
         new ExtractTextPlugin("css/[name].css"),
+        // 生成Html
         new HtmlWebpackPlugin({
-            title:'sale',
-            template:'src/base/webpack.template.html',
-            filename:'sale.html',
-            chunks:['sale']
+            title: 'sale', // 文件的title
+            template: 'base/webpack.template.html', // 编译的模板
+            filename: 'sale.html', // 文件名
+            chunks: ['sale','list']  // 需要的css/js
         }),
     ],
     module: {
@@ -59,9 +61,9 @@ module.exports = {
                 test: /\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,
                 // 算法添加了文件后缀
                 loader: "file-loader",
-                options:{
+                options: {
                     // 配置路径
-                    name:'assets/name=[name]_[sha512:hash:base64:7].[ext]'
+                    name: 'assets/name=[name]_[sha512:hash:base64:7].[ext]'
                 }
             }
         ]

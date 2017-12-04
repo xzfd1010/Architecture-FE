@@ -1,5 +1,5 @@
 // 配置入口的文件
 module.exports = {
-    sale: "./sale.js",
-    list: "./list.js"
+    sale: "./app/sale.js",
+    list: "./app/list.js"
 }
