@@ -3,7 +3,7 @@ const baseWebpackConfig = require('./base.config.js');
 const devWebpackPartialConfig = {
     watch:true,
     devServer: {
-        // 非webpack编译范围内的内容目录
+        // 设置本地服务器的启动目录
         contentBase: path.join(process.cwd(), "sample"),
         compress:true,
         port:8080
