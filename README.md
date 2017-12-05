@@ -32,7 +32,7 @@ a boilerplate for fe architecture
 |- |- |- reset.css [重置样式]
 ```
 
-#links
+# links
 
 [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
 
